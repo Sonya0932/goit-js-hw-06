@@ -24,11 +24,29 @@ const images = [
 //   galleryEl.appendChild(itemEl)
 //  }
 
-for (const image of images) {
-  console.log(image.url);
+// for (const image of images) {
+//   console.log(image.url);
   
-  const galleryEl = document.querySelector('.gallery')
-  galleryEl.insertAdjacentHTML("afterbegin", `<li><img src = ${image.url} alt = ${image.alt} height = 1500px></li>`)
- }
+//   const galleryEl = document.querySelector('.gallery')
+//   galleryEl.insertAdjacentHTML("afterbegin", `<li><img src = ${image.url} alt = ${image.alt} height = 1500px></li>`)
+//  }
+
+const list = document.querySelector('.gallery')
+
+const markup = images
+	.map(image => `<li><img class="picture" src=${image.url} width = '400' alt='${image.alt}'></img></li>`)
+	.join('')
+
+  list.insertAdjacentHTML('beforeend', markup)
+  
+  
+const pictures = document.querySelectorAll('.picture')
+
+list.style.display = 'flex';
+list.style.flexWrap = 'column-reverse'
+list.style.listStyle = 'none'
+list.style.gap = '30px'
+list.style.justifyContent = 'center'
+
 
 
