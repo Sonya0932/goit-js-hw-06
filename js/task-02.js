@@ -7,14 +7,15 @@ const ingredients = [
   'Condiments',
 ];
 
-const list = document.querySelector('#ingredients')
-const liArray = []
 
-ingredients.map(ingredient => {
-	const item = document.createElement('li')
-	item.className = 'item'
-	item.textContent = ingredient
-	liArray.push(item)
-})
+const list = document.querySelector("#ingredients");
 
-list.append(...liArray)
+const newItems = ingredients.map(ingredient => {
+  const makeIngredient = document.createElement("li");
+  makeIngredient.textContent = ingredient;
+  makeIngredient.classList.add("item");
+
+  return makeIngredient;
+});
+
+list.append(...newItems);
